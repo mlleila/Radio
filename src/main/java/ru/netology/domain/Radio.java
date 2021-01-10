@@ -2,11 +2,12 @@ package ru.netology.domain;
 
 public class Radio {
     private String name;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
     private int currentRadioStation;
     private boolean on;
+    private int numberOfStations = 15;
 
     // название радио
     public void setName(String name) {
@@ -19,11 +20,11 @@ public class Radio {
 
     // номер радио станции
     public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > numberOfStations) {
             currentRadioStation = 0;
         }
         if (currentRadioStation < 0) {
-            currentRadioStation = 9;
+            currentRadioStation = numberOfStations;
         }
         this.currentRadioStation = currentRadioStation;
     }
@@ -34,7 +35,7 @@ public class Radio {
 
     //максимальная громкость звука
     public void setMaxVolume(int maxVolume) {
-        this.maxVolume = 10;
+        this.maxVolume = 100;
     }
 
     public int getMaxVolume() {
@@ -92,7 +93,7 @@ public class Radio {
     //переключение станции Next
     public void setCurrentRadioStationNext() {
       int  currentRadioStationNext = currentRadioStation + 1;
-        if (currentRadioStationNext > 9) {
+        if (currentRadioStationNext > numberOfStations) {
             currentRadioStationNext = 0;
         }
         this.currentRadioStation = currentRadioStationNext;
@@ -106,7 +107,7 @@ public class Radio {
     public void setCurrentRadioStationPrev() {
         int currentRadioStationPrev = currentRadioStation - 1;
         if (currentRadioStationPrev < 0) {
-            currentRadioStationPrev = 9;
+            currentRadioStationPrev = numberOfStations;
         }
         this.currentRadioStation = currentRadioStationPrev;
     }
@@ -122,5 +123,15 @@ public class Radio {
     public void setOn(boolean on) {
         this.on = on;
     }
+
+    //количество радиостанций
+    public void setNumberOfStations(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+    }
+
+    public int getNumberOfStations() {
+        return numberOfStations;
+    }
+
 }
 
