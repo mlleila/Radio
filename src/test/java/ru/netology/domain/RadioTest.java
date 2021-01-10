@@ -6,6 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     @Test
+    public void shouldGetAndSetNumberOfStations() {
+        Radio radio = new Radio();
+        int expected;
+        radio.setNumberOfStations(15);
+        assertEquals(15, radio.getNumberOfStations());
+    }
+
+    @Test
     public void shouldGetAndSetName() {
         Radio radio = new Radio();
         String expected = "Радио";
@@ -19,13 +27,13 @@ class RadioTest {
         Radio radio = new Radio();
         int expected;
         radio.setCurrentRadioStation(-1);
-        assertEquals(9, radio.getCurrentRadioStation());
+        assertEquals(15, radio.getCurrentRadioStation());
     }
     @Test
     public void shouldGetAndSetCurrentRadioStation2() {
         Radio radio = new Radio();
         int expected;
-        radio.setCurrentRadioStation(10);
+        radio.setCurrentRadioStation(16);
         assertEquals(0, radio.getCurrentRadioStation());
     }
 
@@ -33,8 +41,8 @@ class RadioTest {
     public void shouldGetAndSetCurrentVolume() {
         Radio radio = new Radio();
         int expected;
-        radio.setCurrentVolume(11);
-        assertEquals(10, radio.getCurrentVolume());
+        radio.setCurrentVolume(101);
+        assertEquals(100, radio.getCurrentVolume());
     }
     @Test
     public void shouldGetAndSetCurrentVolume2() {
@@ -48,8 +56,8 @@ class RadioTest {
     public void shouldGetAndSetMaxVolume() {
         Radio radio = new Radio();
         int expected;
-        radio.setMaxVolume(10);
-        assertEquals(10, radio.getMaxVolume());
+        radio.setMaxVolume(100);
+        assertEquals(100, radio.getMaxVolume());
     }
 
     @Test
@@ -71,9 +79,9 @@ class RadioTest {
     @Test
     public void shouldCheckCurrentVolumeNext() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.setCurrentVolumeNext();
-        assertEquals(10, radio.getCurrentVolumeNext());
+        assertEquals(100, radio.getCurrentVolumeNext());
     }
 
     @Test
@@ -103,13 +111,13 @@ class RadioTest {
     public void shouldCheckCurrentRadioStationNext() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
-       radio.setCurrentRadioStationNext();
+        radio.setCurrentRadioStationNext();
         assertEquals(1, radio.getCurrentRadioStationNext());
     }
     @Test
     public void shouldCheckCurrentRadioStationNext2() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStation(9);
+        radio.setCurrentRadioStation(15);
        radio.setCurrentRadioStationNext();
         assertEquals(0, radio.getCurrentRadioStationNext());
     }
@@ -125,7 +133,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
         radio.setCurrentRadioStationPrev();
-        assertEquals(9, radio.getCurrentRadioStationPrev());
+        assertEquals(15, radio.getCurrentRadioStationPrev());
     }
 
 }
